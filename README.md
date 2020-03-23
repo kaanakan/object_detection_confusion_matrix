@@ -1,5 +1,7 @@
 # object_detection_confusion_matrix
 
+[![DOI](https://zenodo.org/badge/249415928.svg)](https://zenodo.org/badge/latestdoi/249415928)
+
 The ConfusionMatrix class can be used to generate confusion matrix for the object detection task.
 
 ## Usage
