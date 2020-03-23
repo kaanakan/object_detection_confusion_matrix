@@ -1,4 +1,4 @@
-# object_detection_confusion_matrix
+# Confusion Matrix for Object Detection
 
 [![DOI](https://zenodo.org/badge/249415928.svg)](https://zenodo.org/badge/latestdoi/249415928)
 
