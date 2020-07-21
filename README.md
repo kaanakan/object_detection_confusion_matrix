@@ -24,7 +24,7 @@ This repository uses a function from Pytorch repository, https://github.com/pyto
 
 and
 
-The code is very similar to the repository below and main contribution of this repository is ConfusionMatrix class can be ued with all deep learning frameworks.
+The code is very similar to the repository below and main contribution of this repository is ConfusionMatrix class can be used with all deep learning frameworks.
 
 https://github.com/svpino/tf_object_detection_cm
 
