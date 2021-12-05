@@ -51,7 +51,7 @@ class ConfusionMatrix:
 
         try:
             detections = detections[detections[:, 4] > self.CONF_THRESHOLD]
-        except IndexError:
+        except TypeError:
             # detections are empty, end of process
             for i, label in enumerate(labels):
                 gt_class = gt_classes[i]
