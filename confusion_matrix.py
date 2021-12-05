@@ -31,13 +31,13 @@ def box_iou_calc(boxes1, boxes2):
 
 
 class ConfusionMatrix:
-    def __init__(self, num_classes, CONF_THRESHOLD=0.3, IOU_THRESHOLD=0.5):
+    def __init__(self, num_classes: int, CONF_THRESHOLD=0.3, IOU_THRESHOLD=0.5):
         self.matrix = np.zeros((num_classes + 1, num_classes + 1))
         self.num_classes = num_classes
         self.CONF_THRESHOLD = CONF_THRESHOLD
         self.IOU_THRESHOLD = IOU_THRESHOLD
 
-    def process_batch(self, detections, labels):
+    def process_batch(self, detections, labels: np.ndarray):
         """
         Return intersection-over-union (Jaccard index) of boxes.
         Both sets of boxes are expected to be in (x1, y1, x2, y2) format.
@@ -47,8 +47,17 @@ class ConfusionMatrix:
         Returns:
             None, updates confusion matrix accordingly
         """
-        detections = detections[detections[:, 4] > self.CONF_THRESHOLD]
         gt_classes = labels[:, 0].astype(np.int16)
+
+        try:
+            detections = detections[detections[:, 4] > self.CONF_THRESHOLD]
+        except IndexError or TypeError:
+            # detections are empty, end of process
+            for i, label in enumerate(labels):
+                gt_class = gt_classes[i]
+                self.matrix[self.num_classes, gt_class] += 1
+            return
+
         detection_classes = detections[:, 5].astype(np.int16)
 
         all_ious = box_iou_calc(labels[:, 1:], detections[:, :4])
