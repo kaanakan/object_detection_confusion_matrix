@@ -10,7 +10,7 @@ In the test code, you need to declare the ConfusionMatrix class with the appropr
 
 `conf_mat = ConfusionMatrix(num_classes = 3, CONF_THRESHOLD = 0.3, IOU_THRESHOLD = 0.5)`
 
-The class has a function called, process_batch, you can use it update the confusion matrix. 
+The class has a function called, process_batch, you can use it update the confusion matrix.
 
 An example usage can be:
 
@@ -31,3 +31,7 @@ https://github.com/svpino/tf_object_detection_cm
 ## Citations
 
 If you would like to cite the concept, please use this doi: DOI: 10.5281/zenodo.3724203
+
+## Contributions
+
+Thanks to [Berkay Ugur Senocak](https://4turkuaz.github.io) for his contributions for maintenance issues on the repository.
